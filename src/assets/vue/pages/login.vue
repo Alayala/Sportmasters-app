@@ -31,7 +31,8 @@
       ></f7-list-input>
     </f7-list>
     <f7-list>
-      <f7-list-button @click="login">Entrar</f7-list-button>
+      <!--<f7-list-button @click="login">Entrar</f7-list-button>-->
+      <f7-link class="button" href="/home/">Entrar</f7-link>
       <f7-block-footer><f7-link class="link-secundary" @click="remember">¿Has olvidado la contraseña?</f7-link></f7-block-footer>
       <f7-block-footer>Pincha <f7-link back>aquí</f7-link> para volver</f7-block-footer>
     </f7-list>
