@@ -136,10 +136,10 @@
         }).then(response => { 
           this.avatar = 'http://127.0.0.1:8080/api/user/avatar/' + response.data.avatar;
           this.name = response.data.name;
-          this.lastname = response.data.lastname;
-          this.address = response.data.address;
-          this.phone = response.data.phone;
-          this.description = response.data.description;
+          this.lastname = (response.data.lastname == "null") ? "" : response.data.lastname;
+          this.address = (response.data.address == "null") ? "" : response.data.address;
+          this.phone = (response.data.phone == "null") ? "" : response.data.phone;
+          this.description = (response.data.description == "null") ? "" : response.data.description;
         }).catch( error => {
           this.showMsg(error.response.data['message']);
         });
@@ -163,7 +163,7 @@
             }).then(response => { 
               this.$modal.show('dialog', {
                 title: 'Información',
-                text: 'Datos modificados correctamente',
+                text: 'Curriculum añadido correctamente. Ya puedes consultarlo desde tu panel personal',
                 buttons: [
                   {
                     title: 'CLOSE'

@@ -9,14 +9,6 @@ import ConfirmationAccountPage from './assets/vue/pages/confirmation-account.vue
 import ConfirmationPasswordPage from './assets/vue/pages/confirmation-password.vue';
 import ChangePasswordPage from './assets/vue/pages/change-password.vue';
 
-/*import AboutPage from './assets/vue/pages/about.vue';
-import FormPage from './assets/vue/pages/form.vue';
-import DynamicRoutePage from './assets/vue/pages/dynamic-route.vue';
-
-import PanelLeftPage from './assets/vue/pages/panel-left.vue';
-import ColorThemes from './assets/vue/pages/color-themes.vue';
-import Chat from './assets/vue/pages/chat.vue';
-import Vuex from './assets/vue/pages/vuex.vue';*/
 
 export default [
   {

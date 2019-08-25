@@ -73,9 +73,8 @@
                 var password = this.password;
                 const id = response.data.id;
                 const token = response.data.access_token;
-                const avatar = response.data.avatar;
 
-                var login = {'email': email, 'id': id, 'avatar': avatar};
+                var login = {'email': email, 'id': id};
                 localStorage.setItem('login', JSON.stringify(login));
                 localStorage.setItem('user-token', token);
                 this.$session.set('email', email);

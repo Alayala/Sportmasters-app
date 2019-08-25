@@ -51,25 +51,40 @@
       getCurriculum: function(id) {
         return this.axios.get('http://127.0.0.1:8080/api/user/curriculum/'+id,
           {headers:{
-            'Content-Type':'multipart/form-data',
+            'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
           }
         }).then(response => { 
           this.showDisabled = false;
-          //console.log(response);
+          return true;
         }).catch( error => {
-          console.log(error);
+          if(error.response.status === 404){
+            this.showDisabled = true;
+            return false;
+          }
+        });
+      },
+      getAvatar: function(id) {
+        return this.axios.get('http://127.0.0.1:8080/api/user/avatar/name/'+id,
+          {headers:{
+            'Content-Type':'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        }).then(response => { 
+          this.avatar = 'http://127.0.0.1:8080/api/user/avatar/' + response.data.name;
+        }).catch( error => {
           if(error.response.status === 404){
             this.showDisabled = true;
           }
-          //console.log(error.response);
         });
       },
       getData: function(){
         this.user_data = JSON.parse(localStorage.getItem('login'));
-        this.avatar = 'http://127.0.0.1:8080/api/user/avatar/' + this.user_data["avatar"];
-        this.getCurriculum(this.user_data["id"]);
-        this.curriculum = 'http://127.0.0.1:8080/api/user/curriculum/' + this.user_data["id"];
+        this.getAvatar(this.user_data["id"]);
+
+        if(this.getCurriculum(this.user_data["id"])){
+          this.curriculum = 'http://127.0.0.1:8080/api/user/curriculum/' + this.user_data["id"];
+        }
       },
       logout: function(){
         this.$session.clear();
