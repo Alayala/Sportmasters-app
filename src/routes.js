@@ -1,5 +1,6 @@
 import MainPage from './assets/vue/pages/main.vue';
 import HomePage from './assets/vue/pages/home.vue';
+import MyAccountPage from './assets/vue/pages/my-account.vue';
 import LoginPage from './assets/vue/pages/login.vue';
 import RegisterPage from './assets/vue/pages/register.vue';
 import AboutPage from './assets/vue/pages/about.vue';
@@ -36,6 +37,11 @@ export default [
     path: '/register',
     component: RegisterPage,
     name: 'register',
+  },
+  {
+    path: '/my-account',
+    component: MyAccountPage,
+    name: 'account',
   },
   {
     path: '/login',

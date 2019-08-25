@@ -22,13 +22,21 @@
           <f7-block><f7-link class="panel-close" href='/personal-data/' view='#main-view'>Datos personales</f7-link></f7-block>
           <f7-block><f7-link class="panel-close" href='/personal-videos/' view='#main-view'>Mis videos</f7-link></f7-block>
           <f7-block><f7-link v-bind:class="{ 'panel-close': true,  'link external': true, disabled: showDisabled }" :href='curriculum' id="ver_curriculum "view='#main-view'>Ver curriculum</f7-link></f7-block>
-          <f7-block><a href="#" class="link">Cuenta</a></f7-block>
+          <f7-block><f7-link class="panel-close" href='/my-account/' view='#main-view'>Mi cuenta</f7-link></f7-block></f7-block>
           <f7-block><f7-link @click="logout" class="panel-close">Cerrar Sesión</f7-link></f7-block>
         </f7-page>
       </f7-view>
     </f7-panel>
 
-    {{ user_data }}
+    <f7-swiper>
+      <f7-swiper-slide>Slide 1</f7-swiper-slide>
+      <f7-swiper-slide>Slide 2</f7-swiper-slide>
+      <f7-swiper-slide>Slide 3</f7-swiper-slide>
+      <f7-swiper-slide>Slide 4</f7-swiper-slide>
+      <f7-swiper-slide>Slide 5</f7-swiper-slide>
+      <f7-swiper-slide>Slide 6</f7-swiper-slide>
+    </f7-swiper>
+
 
 
   </f7-page>
