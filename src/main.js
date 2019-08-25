@@ -23,7 +23,15 @@ import FontAwesome from '@fortawesome/fontawesome-free/css/all.min.css';
 import FastClick from 'fastclick';
 
 // Import App Custom Styles
+import 'assets/css/app.css';
 // import AppStyles from './assets/sass/main.scss'
+
+// Import Bootstrap styles
+import BootstrapVue from 'bootstrap-vue';
+
+// Import Bootstrap css
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Import App Component
 import app from './main.vue';
@@ -31,8 +39,25 @@ import app from './main.vue';
 // Import Vuex Storage
 import store from './assets/vuex/storage.js';
 
+// Import Vmodal dialog
+import VModal from 'vue-js-modal';
+
+// Import from session component
+import VueSessionStorage from 'vue-sessionstorage';
+
+// Import axios component for api comunication
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
 // Different F7-Vue plugin initialization with f7 v3.0
 Framework7.use(Framework7Vue);
+
+//Vue use components
+Vue.use(BootstrapVue);
+Vue.use(VModal, { dialog: true });
+Vue.use(VueAxios, axios);
+Vue.use(VueSessionStorage);
+
 
 // Init Vue App
 export default new Vue({

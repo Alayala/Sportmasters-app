@@ -1,0 +1,73 @@
+/* Your app custom styles here */
+.messageAlert {
+	width: 90%;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+}
+
+.messageAlert .alert-dismissible .close {
+	left: 45%;
+}
+
+.mainMenu {
+	width:50%;
+	display: inline-block
+}
+
+.mainMenu .button {
+	margin-bottom: 20px;
+}
+
+.confirmation {
+	width: 90%;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+}
+
+.confirmation .button{
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+.confirmation img{
+	width: 15%;
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+.link-secundary {
+	font-size: smaller;
+}
+
+.navbar .img {
+	float: right;
+}
+
+.list li {
+	list-style: none;
+}
+
+.avatar .item-content .item-inner{
+	display: inline-block !important;
+    text-align: center !important;
+}
+
+.avatar .item-content .item-inner label img{
+	width: 60%;
+	/*margin: 5px;*/
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.menu_lateral a {
+	color: white;
+    text-decoration: none;
+}
+
+#avatar-miniature {
+	width:15%;
+	border-radius: 50%;
+}
+
