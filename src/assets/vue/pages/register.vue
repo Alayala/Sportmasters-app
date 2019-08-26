@@ -16,6 +16,7 @@
         type="text"
         placeholder="Tu nombre"
         @input="name = $event.target.value"
+        :value="name"
         required
         validate
         clear-button
@@ -26,6 +27,7 @@
         type="email"
         placeholder="E-mail"
         @input="email = $event.target.value"
+        :value="email"
         required
         validate
         clear-button
@@ -36,6 +38,7 @@
         type="password"
         placeholder="Tu Password"
         @input="password = $event.target.value"
+        :value="password"
         required
         validate
         clear-button
@@ -47,6 +50,7 @@
         type="password"
         placeholder="Repite Password"
         @input="passwordConfirm = $event.target.value"
+        :value="passwordConfirm"
         required
         validate
         clear-button
@@ -64,7 +68,22 @@
         <f7-button class="col" fill @click="signup">Registrarme</f7-button>
     </f7-block>
 
-    <v-dialog name='dialog'/>
+    <!--Modal con información-->
+    <div class="sheet-modal sheet-modal-top my-sheet-top">
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a class="link sheet-close" href="/">Cerrar</a></div>
+        </div>
+      </div>
+      <div class="sheet-modal-inner">
+        <div class="block">
+          <h4>Información</h4>
+          <p>Registro completado. Te hemos enviado un email para activar tu cuenta</p>
+        </div>
+      </div>
+    </div>
+
 
   </f7-page>
 </template>
@@ -72,12 +91,14 @@
 <script>
 
   export default {
+    
+
     data() {
       return {
-        name: "",
-        email: "", 
-        password: "",
-        passwordConfirm: "",
+        name: "Fredy",
+        email: "cristinarosilloarenas@gmail.com", 
+        password: "fredy",
+        passwordConfirm: "fredy",
         userRol: '0',
         message: "",
         seen: false,
@@ -105,15 +126,8 @@
               }
             }).then(response => { 
                 //success
-                this.$modal.show('dialog', {
-                  title: 'Información',
-                  text: 'Registro completado. Te hemos enviado un email para activar tu cuenta',
-                  buttons: [
-                    {
-                      title: 'CLOSE',
-                      handler: () => { this.$f7router.navigate({ name: 'main' }); }
-                    },
-                 ]
+                this.$f7ready((f7) => {
+                  f7.sheet.open(".my-sheet-top");
                 });
               }).catch( error => {
                 //error

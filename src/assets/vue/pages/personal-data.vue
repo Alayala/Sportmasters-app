@@ -75,7 +75,21 @@
 
       <f7-button class="col" raised fill  @click="saveChanges">Guardar</f7-button>
 
-      <v-dialog name='dialog'/>
+      <!--Modal con información-->
+      <div class="sheet-modal sheet-modal-top my-sheet-top">
+        <div class="toolbar toolbar-bottom">
+          <div class="toolbar-inner">
+            <div class="left"></div>
+            <div class="right"><a class="link sheet-close" href="#">Cerrar</a></div>
+          </div>
+        </div>
+        <div class="sheet-modal-inner">
+          <div class="block">
+            <h4>Información</h4>
+            <p>{{ information }}</p>
+          </div>
+        </div>
+      </div>
 
     </f7-list>
   </f7-page>
@@ -95,6 +109,7 @@
         description: '',
         phone: '',
         curriculum: '',
+        information: '',
       }
     },
     mounted() {
@@ -161,14 +176,9 @@
               'X-Requested-With': 'XMLHttpRequest'
               }
             }).then(response => { 
-              this.$modal.show('dialog', {
-                title: 'Información',
-                text: 'Curriculum añadido correctamente. Ya puedes consultarlo desde tu panel personal',
-                buttons: [
-                  {
-                    title: 'CLOSE'
-                  },
-                ]
+              this.information = 'Curriculum añadido correctamente. Ya puedes consultarlo desde tu panel personal';
+              this.$f7ready((f7) => {
+                f7.sheet.open(".my-sheet-top");
               });
             }).catch( error => {
               //console.log(error);

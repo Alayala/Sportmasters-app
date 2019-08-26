@@ -20,7 +20,7 @@ export default [
     path: '/home',
     component: HomePage,
     name: 'home',
-    /*async(routeTo, routeFrom, resolve, reject) {
+    async(routeTo, routeFrom, resolve, reject) {
        // Router instance
       var router = this;
       // App instance
@@ -30,7 +30,7 @@ export default [
       if (this.$session !== undefined) {
         resolve({ component: LoginPage })
       }
-    }*/
+    }
   },
   {
     path: '/register',

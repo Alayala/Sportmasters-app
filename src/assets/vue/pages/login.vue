@@ -31,12 +31,26 @@
       ></f7-list-input>
     </f7-list>
     <f7-list>
-      <f7-list-button @click="login" v:if="access" href="/home/">Entrar</f7-list-button>
+      <f7-list-button @click="login" v-if="access" href="/home/">Entrar</f7-list-button>
       <f7-block-footer><f7-link class="link-secundary" @click="remember">¿Has olvidado la contraseña?</f7-link></f7-block-footer>
       <f7-block-footer>Pincha <f7-link back>aquí</f7-link> para volver</f7-block-footer>
     </f7-list>
 
-    <v-dialog name='dialog'/>
+    <!--Modal con información-->
+    <div class="sheet-modal sheet-modal-top my-sheet-top">
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a class="link sheet-close" href="/">Cerrar</a></div>
+        </div>
+      </div>
+      <div class="sheet-modal-inner">
+        <div class="block">
+          <h4>Información</h4>
+          <p>Te hemos enviado un email para cambiar tu contraseña</p>
+        </div>
+      </div>
+    </div>
 
   </f7-page>
 </template>
@@ -84,7 +98,6 @@
                 this.axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 
                 this.access = true;
-                //this.$f7router.navigate({ name: 'home' });
               }).catch(error => {
                 //error
                 if(error.request.status == '404'){
@@ -108,15 +121,8 @@
             }
             }).then(response => { 
               //success
-              this.$modal.show('dialog', {
-                title: 'Información',
-                text: 'Te hemos enviado un email para cambiar tu contraseña',
-                buttons: [
-                  {
-                    title: 'CLOSE',
-                    handler: () => { this.$f7router.navigate({ name: 'main' }); }
-                  },
-                ]
+              this.$f7ready((f7) => {
+                f7.sheet.open(".my-sheet-top");
               });
             }).catch(error => {
               //error

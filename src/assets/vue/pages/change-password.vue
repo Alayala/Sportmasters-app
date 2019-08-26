@@ -31,8 +31,8 @@
       ></f7-list-input>
     </f7-list>
     <f7-list>
-      <f7-list-button @click="changePassword" v-if="confirm" href="/confirmation-password/">Guardar</f7-list-button>
-      <f7-list-button @click="changePassword" v-else href="/fail-password/">Guardar</f7-list-button>
+      <f7-list-button @click="changePassword" v-if="confirm" href="/confirmation/0/0/">Guardar</f7-list-button>
+      <f7-list-button @click="changePassword" v-else href="/confirmation/0/1/">Guardar</f7-list-button>
     </f7-list>
 
     <v-dialog name='dialog'/>

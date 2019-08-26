@@ -54,7 +54,7 @@ Framework7.use(Framework7Vue);
 
 //Vue use components
 Vue.use(BootstrapVue);
-Vue.use(VModal, { dialog: true });
+Vue.use(VModal, { dialog: true});
 Vue.use(VueAxios, axios);
 Vue.use(VueSessionStorage);
 
