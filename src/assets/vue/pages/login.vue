@@ -106,7 +106,6 @@
                 }else{
                   this.showMsg(error.response.data['message']);
                 }
-                return false;
               });
         }
       },
