@@ -17,7 +17,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="*" />
+    <allow-navigation data-href="*://*.example.com/*" href="*" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="DisallowOverscroll" value="true" />
 </widget>

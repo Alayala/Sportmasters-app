@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Sportmasters",
+  "short_name": "Sportmasters",
+  "version": "com.example.template",
+  "description": "Brand new cordova project!",
+  "author": "Apache Cordova Team",
+  "icons": [],
+  "start_url": "index.html"
+}

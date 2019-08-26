@@ -83,7 +83,6 @@
               }
             }).then(response => { 
                 //success
-                alert("datos correctos");
                 var email = this.email;
                 var password = this.password;
                 const id = response.data.id;
@@ -97,10 +96,9 @@
 
                 this.axios.defaults.headers.common['Authorization'] = "Bearer " + token;
                 
-                this.$f7router.navigate('/home/');
+                this.$f7router.navigate({ name: 'home' });
               }).catch(error => {
                 //error
-                alert("entra en error");
                 if(error.request.status == '404'){
                   this.showMsg('Ups! ha ocurrido un error pongase en contacto con el administrador');
                 }else{
