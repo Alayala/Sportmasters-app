@@ -111,9 +111,11 @@
         return false;
       },
       signup: function() {
+        alert("entra en la función");
         if(this.password != this.passwordConfirm){
           this.showMsg("Los password no coinciden");
         }else{
+          alert("las contraseñas coinciden, se hace la petición axios");
           return this.axios.post('http://127.0.0.1:8080/api/auth/signup', { 
             name: this.name, 
             email: this.email, 
