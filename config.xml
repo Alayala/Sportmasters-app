@@ -22,6 +22,17 @@
     <allow-intent href="geo:*"/>
     <platform name="android">
         <allow-intent href="market:*"/>
+        <allow-navigation>
+            <!-- Wildcards are allowed for the protocol, as a prefix
+            to the host, or as a suffix to the path -->
+            <allow-navigation href="*://*.example.com/*" />
+        <allow-intent>
+            <!-- Allow links to web pages to open in a browser -->
+            <allow-intent href="http://*/*" />
+            <allow-intent href="https://*/*" />
+        <access origin="*"/>
+            <allow-intent href="http://*/*"/>
+            <allow-intent href="https://*/*"/>
     </platform>
     <platform name="ios">
         <splash src="res/screen/ios/Default@2x~universal~anyany.png"/>
