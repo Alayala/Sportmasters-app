@@ -6,8 +6,7 @@ import RegisterPage from './assets/vue/pages/register.vue';
 import AboutPage from './assets/vue/pages/about.vue';
 import NotFoundPage from './assets/vue/pages/404.vue';
 import PersonalDataPage from './assets/vue/pages/personal-data.vue';
-import ConfirmationAccountPage from './assets/vue/pages/confirmation-account.vue';
-import ConfirmationPasswordPage from './assets/vue/pages/confirmation-password.vue';
+import ConfirmationPage from './assets/vue/pages/confirmation.vue';
 import ChangePasswordPage from './assets/vue/pages/change-password.vue';
 
 
@@ -59,9 +58,9 @@ export default [
     name: 'about',
   },
   {
-    path: '/confirmation-account',
-    component: ConfirmationAccountPage,
-    name: 'confirmation-account',
+    path: '/confirmation/:code/:status',
+    component: ConfirmationPage,
+    name: 'confirmation',
   },
   {
     path: '/change-password/:token',

@@ -31,8 +31,7 @@
       ></f7-list-input>
     </f7-list>
     <f7-list>
-      <!--<f7-list-button @click="login">Entrar</f7-list-button>-->
-      <f7-link class="button" href="/home/">Entrar</f7-link>
+      <f7-list-button @click="login" v:if="access" href="/home/">Entrar</f7-list-button>
       <f7-block-footer><f7-link class="link-secundary" @click="remember">¿Has olvidado la contraseña?</f7-link></f7-block-footer>
       <f7-block-footer>Pincha <f7-link back>aquí</f7-link> para volver</f7-block-footer>
     </f7-list>
@@ -50,7 +49,8 @@
         email: "cristy.blk@gmail.com", 
         password: "cristina",
         message: "",
-        seen: false
+        seen: false,
+        access: false,
       };
     },
     methods: {
@@ -83,7 +83,8 @@
 
                 this.axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 
-                this.$f7router.navigate({ name: 'home' });
+                this.access = true;
+                //this.$f7router.navigate({ name: 'home' });
               }).catch(error => {
                 //error
                 if(error.request.status == '404'){

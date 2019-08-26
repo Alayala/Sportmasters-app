@@ -31,7 +31,8 @@
       ></f7-list-input>
     </f7-list>
     <f7-list>
-      <f7-list-button @click="changePassword">Guardar</f7-list-button>
+      <f7-list-button @click="changePassword" v-if="confirm" href="/confirmation-password/">Guardar</f7-list-button>
+      <f7-list-button @click="changePassword" v-else href="/fail-password/">Guardar</f7-list-button>
     </f7-list>
 
     <v-dialog name='dialog'/>
@@ -51,6 +52,7 @@
         seen: false,
         token: null,
         email: null,
+        confirm: true,
       };
     }, 
     methods: {
@@ -76,20 +78,10 @@
             }
             }).then(response => { 
               //success
-                this.$modal.show('dialog', {
-                  title: 'Información',
-                  text: 'Te hemos enviado un email para cambiar tu contraseña',
-                  buttons: [
-                    {
-                      title: 'CLOSE',
-                      handler: () => { this.$f7router.navigate({ name: 'main' }); }
-                    },
-                 ]
-                });
+              this.confirm = true;
             }).catch(error => {
               //error
-              //console.log(error);
-              this.$f7router.navigate({ name: 'confirmation-password' });
+              this.confirm = false;
             });
         }
       },
