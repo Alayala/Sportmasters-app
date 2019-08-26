@@ -128,7 +128,6 @@
               }
             }).then(response => { 
                 //success
-                alert("registro correcto");
                 this.$f7ready((f7) => {
                   f7.sheet.open(".my-sheet-top");
                 });
