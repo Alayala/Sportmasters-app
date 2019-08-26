@@ -31,7 +31,7 @@
       ></f7-list-input>
     </f7-list>
     <f7-list>
-      <f7-list-button @click="login" v-if="access" href="/home/">Entrar</f7-list-button>
+      <f7-list-button @click.prevent="login">Entrar</f7-list-button>     
       <f7-block-footer><f7-link class="link-secundary" @click="remember">¿Has olvidado la contraseña?</f7-link></f7-block-footer>
       <f7-block-footer>Pincha <f7-link back>aquí</f7-link> para volver</f7-block-footer>
     </f7-list>
@@ -64,7 +64,6 @@
         password: "cristina",
         message: "",
         seen: false,
-        access: false,
       };
     },
     methods: {
@@ -84,6 +83,7 @@
               }
             }).then(response => { 
                 //success
+                alert("datos correctos");
                 var email = this.email;
                 var password = this.password;
                 const id = response.data.id;
@@ -96,15 +96,17 @@
                 this.$session.set('password', password);
 
                 this.axios.defaults.headers.common['Authorization'] = "Bearer " + token;
-
-                this.access = true;
+                
+                this.$f7router.navigate('/home/');
               }).catch(error => {
                 //error
+                alert("entra en error");
                 if(error.request.status == '404'){
                   this.showMsg('Ups! ha ocurrido un error pongase en contacto con el administrador');
                 }else{
                   this.showMsg(error.response.data['message']);
                 }
+                return false;
               });
         }
       },
