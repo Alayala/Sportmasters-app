@@ -23,9 +23,6 @@
     <allow-navigation href="*" />
     <platform name="android">
         <allow-intent href="market:*"/>
-        <allow-navigation href="*" />
-        <allow-intent href="*" />
-        <access origin="*" />
     </platform>
     <platform name="ios">
         <splash src="res/screen/ios/Default@2x~universal~anyany.png"/>
