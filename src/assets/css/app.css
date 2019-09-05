@@ -1,8 +1,10 @@
 /* Your app custom styles here */
+
 .messageAlert {
 	width: 90%;
 	margin-left: auto; 
 	margin-right: auto;
+	margin-top: 1%;
 	text-align: center;
 }
 
@@ -63,7 +65,11 @@
 
 .menu_lateral a {
 	color: white;
-    text-decoration: none;
+}
+
+.menu_lateral a:hover {
+	color: orange;
+	text-decoration: none;
 }
 
 #avatar-miniature {
@@ -75,7 +81,188 @@
     background: #fff;
     text-align: center;
     font-size: 18px;
-    line-height: 200px;
+    line-height: 100px;
     box-sizing: border-box;
     border: 1px solid #ccc;
 }
+
+.fab {
+	color: white;
+    font-family: inherit;
+}
+
+.dialog-inner {
+	text-align: center;
+}
+
+.md .dialog-buttons {
+    justify-content: center;
+}
+
+.offer_list{
+	margin-top: 5px;
+}
+
+.menu-item .icon {
+	margin-right: 0px;
+}
+
+.icon {
+	margin-right: 10px;
+}
+
+.card_offer .card-header{
+	background-color: lightgrey;
+	text-align: left;
+}
+
+.card_offer .card-content{
+	height: 160px;
+}
+
+.card_videos .card-header{
+	background-color: lightgrey;
+}
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.card_offer .date{
+    color: grey;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.card_videos .date {
+	padding-bottom: 6px;
+}
+
+.card_offer .date {
+	width: 100%;
+}
+
+.card_offer .date .name {
+    float: none;
+    margin-left: 5px;
+}
+
+.date img {
+	width: 15%;
+	border-radius: 50%;
+	float: left;
+}
+
+.date label{
+	margin-top: 10px;
+	float: right;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.iframe-container iframe {
+  	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.list-button{
+	margin-top: 0px;
+	display:inline-block;
+}
+
+.list-button a.button{
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.span{
+	font-size: medium;
+    color: grey;
+    text-align: center;
+}
+
+.left span{
+	margin-left: 10px;
+}
+
+.title-strong{
+	color: black;
+	font-size: large;
+}
+
+.data {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.data strong{
+	font-size:x-large;
+}
+
+.data span{
+	font-size: smaller;
+    float: right;
+    padding-top: 3px;
+}
+
+.Visible .item-after > span{
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-radius:10%;
+	background-color: #6bc56b;
+	font-weight: 600;
+	color: white;
+}
+
+
+.Oculto .item-after > span{
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-radius:10%;
+	background-color: #dc7474;
+	font-weight: 600;
+	color: white;
+}
+
+.list_offer_inactive {
+	background-color: lightgrey; color: grey;
+}
+
+.left label{
+	margin: 5px;
+    color: #007bff;
+}
+
+.left select {
+	margin: 5px;
+    height: 40px;
+}
+
+.video .item-subtitle{
+	color:grey;
+}
+
+.video .item-title-row{
+	font-size: larger;
+    padding-bottom: 5px;
+}
+
+
+/*
+.video .item-text{
+	padding-top: 5px;
+	margin-bottom: 5px;
+	padding-right: 5px;
+}*/

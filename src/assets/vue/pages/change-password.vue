@@ -57,6 +57,7 @@
     }, 
     methods: {
       showMsg(msg){
+        this.$f7.$('.page-content').scrollTop(0, 600);
         this.message = msg;
         this.seen = true;
         return false;

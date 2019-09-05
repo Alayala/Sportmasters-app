@@ -7,10 +7,10 @@
 
     <!-- Page content-->
     <f7-block strong>
-      <p>Bienvenido a nuestra plataforma de búsqueda para profesionales del deporte</p>
+      <p>Bienvenido a nuestra plataforma para profesionales del deporte</p>
     </f7-block>
 
-    <f7-block-title>Modals</f7-block-title>
+    <f7-block-title>Acceder</f7-block-title>
     <f7-block strong class="mainMenu">
       <f7-link class="button button-fill button-raised" href="/login/">Inicio de sesión</f7-link>
       <f7-link class="button button-fill button-raised" href="/register/">Registro</f7-link>

@@ -49,6 +49,10 @@ import VueSessionStorage from 'vue-sessionstorage';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
+//Import component for video player
+import vueVimeoPlayer from 'vue-vimeo-player';
+import VueYouTubeEmbed from 'vue-youtube-embed';
+
 // Different F7-Vue plugin initialization with f7 v3.0
 Framework7.use(Framework7Vue);
 
@@ -57,7 +61,8 @@ Vue.use(BootstrapVue);
 Vue.use(VModal, { dialog: true});
 Vue.use(VueAxios, axios);
 Vue.use(VueSessionStorage);
-
+Vue.use(vueVimeoPlayer);
+Vue.use(VueYouTubeEmbed);
 
 // Init Vue App
 export default new Vue({

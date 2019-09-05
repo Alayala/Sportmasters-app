@@ -31,7 +31,7 @@
       ></f7-list-input>
     </f7-list>
     <f7-list>
-      <f7-list-button @click.prevent="login">Entrar</f7-list-button>     
+      <f7-list-button @click ="login">Entrar</f7-list-button>     
       <f7-block-footer><f7-link class="link-secundary" @click="remember">¿Has olvidado la contraseña?</f7-link></f7-block-footer>
       <f7-block-footer>Pincha <f7-link back>aquí</f7-link> para volver</f7-block-footer>
     </f7-list>
@@ -60,14 +60,15 @@
     data() {
       return {
         loginScreenOpened: false,
-        email: "cristy.blk@gmail.com", 
-        password: "cristina",
+        email: "", 
+        password: "",
         message: "",
         seen: false,
       };
     },
     methods: {
       showMsg: function(msg){
+        this.$f7.$('.page-content').scrollTop(0, 600);
         this.message = msg;
         this.seen = true;
         return false;
@@ -87,16 +88,24 @@
                 var password = this.password;
                 const id = response.data.id;
                 const token = response.data.access_token;
+                const rol = response.data.rol;
+                const name = response.data.name;
 
-                var login = {'email': email, 'id': id};
+                var login = {'email': email, 'id': id, 'rol': rol, 'name': name};
                 localStorage.setItem('login', JSON.stringify(login));
                 localStorage.setItem('user-token', token);
                 this.$session.set('email', email);
                 this.$session.set('password', password);
 
                 this.axios.defaults.headers.common['Authorization'] = "Bearer " + token;
+
+                this.$f7.preloader.show();
+                setTimeout(() => {
+                  this.$f7.preloader.hide();
+                  this.$f7ready((f7) => { this.$f7router.navigate({ name: 'home' }); });
+                }, 1000);    
                 
-                this.$f7router.navigate({ name: 'home' });
+                //this.$f7router.navigate({ name: 'home' });
               }).catch(error => {
                 //error
                 if(error.request.status == '404'){

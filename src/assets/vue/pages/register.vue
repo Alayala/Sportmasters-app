@@ -16,7 +16,6 @@
         type="text"
         placeholder="Tu nombre"
         @input="name = $event.target.value"
-        :value="name"
         required
         validate
         clear-button
@@ -27,7 +26,6 @@
         type="email"
         placeholder="E-mail"
         @input="email = $event.target.value"
-        :value="email"
         required
         validate
         clear-button
@@ -36,9 +34,8 @@
      <f7-list-input
         label="Password"
         type="password"
-        placeholder="Tu Password"
+        placeholder="Contraseña"
         @input="password = $event.target.value"
-        :value="password"
         required
         validate
         clear-button
@@ -50,7 +47,6 @@
         type="password"
         placeholder="Repite Password"
         @input="passwordConfirm = $event.target.value"
-        :value="passwordConfirm"
         required
         validate
         clear-button
@@ -60,8 +56,8 @@
 
     <f7-block-title>¿Qué tipo de usuario eres?</f7-block-title>
     <f7-list>
-      <f7-list-item radio name="userRol" :value="0" title="Candidato" @change="userRol = $event.target.value" checked></f7-list-item>
-      <f7-list-item radio name="userRol" :value="1" title="Empresa" @change="userRol = $event.target.value"></f7-list-item>
+      <f7-list-item radio name="userRol" value="0" @change="changeChecked" title="Candidato" checked></f7-list-item>
+      <f7-list-item radio name="userRol" value="1" @change="changeChecked" title="Empresa"></f7-list-item>
     </f7-list>
 
     <f7-block strong>
@@ -91,53 +87,66 @@
 <script>
 
   export default {
-    
-
+  
     data() {
       return {
-        name: "Fredy",
-        email: "cristinarosilloarenas@gmail.com", 
-        password: "fredy",
-        passwordConfirm: "fredy",
-        userRol: '0',
+        name: "",
+        email: "", 
+        password: "",
+        passwordConfirm: "",
         message: "",
         seen: false,
+        rol: '0',
       };
     },
     methods: {
       showMsg: function(msg){
+        this.$f7.$('.page-content').scrollTop(0, 600);
         this.message = msg;
         this.seen = true;
         return false;
       },
-      signup: function() {
-        alert("entra en la función");
+      changeChecked: function(event){
+        this.rol = event.target.value;
+      },
+      validate: function(){
+        var validate = true;
+        if(!this.name || !this.email || !this.password){
+          this.showMsg("Debe rellenar todos los campos");
+          validate = false;
+        }
+
         if(this.password != this.passwordConfirm){
           this.showMsg("Los password no coinciden");
-        }else{
-          alert("las contraseñas coinciden, se hace la petición axios");
+          validate = false;
+        }
+        return validate;
+      },
+      signup: function() {
+        if(this.validate()){        
           return this.axios.post('http://127.0.0.1:8080/api/auth/signup', { 
             name: this.name, 
             email: this.email, 
             password: this.password, 
             password_confirmation: this.passwordConfirm,
-            rol: this.userRol },
-             {headers:{
-              'Content-Type':'application/json',
-              'X-Requested-With': 'XMLHttpRequest'
+            rol: this.rol 
+          },
+              {headers:{
+                'Content-Type':'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
               }
             }).then(response => { 
-                //success
-                this.$f7ready((f7) => {
-                  f7.sheet.open(".my-sheet-top");
-                });
-              }).catch( error => {
-                //error
-                alert(error.response.data['message']);
-                this.showMsg(error.response.data['message']);
-              });
+              //success
+              this.$f7.preloader.show();
+              setTimeout(() => {
+                this.$f7.preloader.hide();
+                this.$f7ready((f7) => { f7.sheet.open(".my-sheet-top"); });
+              }, 2000);    
+            }).catch( error => {
+              //error
+              this.showMsg(error.response.data['message']);
+            });
         }
-
       },
       //Función que elimina los mensjes informativos
       clearMsg: function(){
