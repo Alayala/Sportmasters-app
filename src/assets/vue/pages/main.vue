@@ -18,3 +18,18 @@
 
   </f7-page>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        }
+    },
+    mounted: function(){
+        //this.$f7router.navigate({ name: 'main' });
+        this.$session.clear();
+        localStorage.removeItem('user-token');
+        localStorage.removeItem('login');
+    }
+  };
+  </script>
