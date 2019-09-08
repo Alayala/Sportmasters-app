@@ -15,7 +15,7 @@
 
         <b-navbar-nav class="ml-auto" v-else>
           <b-nav-form>
-            <f7-link icon-f7="exit" color="white" icon-only @click="logout"></f7-link>
+            <f7-link icon-f7="exit" color="white" icon-only href="/" view='#main-view'></f7-link>
           </b-nav-form>       
         </b-navbar-nav>
 
@@ -52,7 +52,7 @@
             </f7-block>
 
             <f7-block>
-              <f7-link @click="logout" class="panel-close" icon-f7="exit">Cerrar Sesión</f7-link>
+              <f7-link class="panel-close" href="/" view='#main-view' icon-f7="exit">Cerrar Sesión</f7-link>
             </f7-block>
 
         </f7-page>
@@ -730,13 +730,12 @@
             console.log(error);
           });
       },
-      logout: function(){
+      /*logout: function(){
+        this.$f7router.navigate({ name: 'main' });
         this.$session.clear();
         localStorage.removeItem('user-token');
         localStorage.removeItem('login');
-
-        this.$f7router.navigate({ name: 'main' });
-      },
+      },*/
       openModalRefresh: function(message){
         this.$modal.show('dialog', {
           title: 'Información!',
