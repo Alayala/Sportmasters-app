@@ -77,7 +77,7 @@
         if (this.email.trim().length === 0 || this.password.trim().length === 0) {
             return false;
         }else{
-          return this.axios.post('http://127.0.0.1:8080/api/auth/login', { email: this.email, password: this.password },
+          return this.axios.post('http://sportmastersapi.hostingerapp.com/api/auth/login', { email: this.email, password: this.password },
              {headers:{
               'Content-Type':'application/json',
               'X-Requested-With': 'XMLHttpRequest'
@@ -122,7 +122,7 @@
           this.showMsg("Debe introducir un email");
         }else{
           localStorage.setItem('email', this.email);
-          return this.axios.post('http://127.0.0.1:8080/api/password/create', { email: this.email},
+          return this.axios.post('http://sportmastersapi.hostingerapp.com/api/password/create', { email: this.email},
             {headers:{
               'Content-Type':'application/json',
               'X-Requested-With': 'XMLHttpRequest'

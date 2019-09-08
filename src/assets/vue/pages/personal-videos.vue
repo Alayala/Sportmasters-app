@@ -55,7 +55,7 @@
         this.player.pauseVideo()
       },
       getVideos: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/user/video/list/'+this.userId,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/video/list/'+this.userId,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'

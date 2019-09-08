@@ -137,7 +137,7 @@
    },
     methods: {
       ofertasActivas: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/bussiness/offer/list-active/'+this.userId,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/bussiness/offer/list-active/'+this.userId,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -152,18 +152,18 @@
       },
       //Método que devuelve toda la información del usuario para mostrarla a través del formulario
       fetchUsersData: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/user/show/'+this.show_id,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/show/'+this.show_id,
         {headers:{
           'Content-Type':'application/json',
           'X-Requested-With': 'XMLHttpRequest'
           }
         }).then(response => { 
-          this.avatar = 'http://127.0.0.1:8080/api/user/avatar/' + response.data.avatar;
+          this.avatar = 'http://sportmastersapi.hostingerapp.com/api/user/avatar/' + response.data.avatar;
           this.name = response.data.name;
           this.lastname = (response.data.lastname == "null") ? "" : response.data.lastname;
           this.email = (response.data.email == "null") ? "" : response.data.email;
           this.description = (response.data.description == "null") ? "" : response.data.description;
-          this.curriculum = 'http://127.0.0.1:8080/api/user/curriculum/' + this.show_id;
+          this.curriculum = 'http://sportmastersapi.hostingerapp.com/api/user/curriculum/' + this.show_id;
           this.listItemsCandidate = response.data.video;
         }).catch( error => {
           this.showMsg(error.response.data['message']);
@@ -171,13 +171,13 @@
       },
       //Método que devuelve toda la información del usuario para mostrarla a través del formulario
       fetchDemandData: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/bussiness/offer/show-demand/'+this.show_id,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/bussiness/offer/show-demand/'+this.show_id,
         {headers:{
           'Content-Type':'application/json',
           'X-Requested-With': 'XMLHttpRequest'
           }
         }).then(response => { 
-          this.avatar = 'http://127.0.0.1:8080/api/user/avatar/' + response.data.avatar;
+          this.avatar = 'http://sportmastersapi.hostingerapp.com/api/user/avatar/' + response.data.avatar;
           this.offer_title = (response.data.offer_title == "null") ? "" : response.data.title;
           this.create = (response.data.create == "null") ? "" : response.data.create;
           this.update = (response.data.update == "null") ? "" : response.data.update;
@@ -201,7 +201,7 @@
         if(this.offerselected == '' || this.offerselected == null){
           this.showMsg("Debe seleccionar una oferta para inscribir al candidato");
         }else{
-          return this.axios.post('http://127.0.0.1:8080/api/bussiness/offer/sign-on/'+this.offerselected, fd,
+          return this.axios.post('http://sportmastersapi.hostingerapp.com/api/bussiness/offer/sign-on/'+this.offerselected, fd,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'

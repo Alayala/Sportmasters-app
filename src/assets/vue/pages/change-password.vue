@@ -72,7 +72,7 @@
           this.token = this.$f7route.params.token;
           this.email = localStorage.getItem('email');
           
-          //return this.axios.post('http://127.0.0.1:8080/api/password/reset', { email: this.email, password: this.password, password_confirmation: this.passwordConfirm, token: this.token},
+          //return this.axios.post('http://sportmastersapi.hostingerapp.com/api/password/reset', { email: this.email, password: this.password, password_confirmation: this.passwordConfirm, token: this.token},
           return this.axios.post('http://sportmasters.com:8080/api/password/reset', { email: this.email, password: this.password, password_confirmation: this.passwordConfirm, token: this.token},
             {headers:{
               'Content-Type':'application/json',

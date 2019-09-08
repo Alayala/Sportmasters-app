@@ -53,7 +53,7 @@
       deleteAccount: function (){
         this.$modal.hide('dialog');
 
-        return this.axios.delete('http://127.0.0.1:8080/api/user/delete/'+this.userId,
+        return this.axios.delete('http://sportmastersapi.hostingerapp.com/api/user/delete/'+this.userId,
              {headers:{
               'Content-Type':'application/json',
               'X-Requested-With': 'XMLHttpRequest'

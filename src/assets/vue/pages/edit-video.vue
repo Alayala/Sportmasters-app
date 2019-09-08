@@ -155,7 +155,7 @@
         this.$f7router.navigate({ name: 'personal-videos' });
       },
       loadVideo: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/user/video/show/'+this.videoId,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/video/show/'+this.videoId,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -191,7 +191,7 @@
       },
       //Listamos las categorias y subcategorias existentes en el sistema
       loadCategoryList: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/user/video/selected/'+this.videoId,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/video/selected/'+this.videoId,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -221,7 +221,7 @@
       },
       delete: function(){
         this.$modal.hide('dialog');
-        return this.axios.delete('http://127.0.0.1:8080/api/user/video/delete/'+this.videoId,
+        return this.axios.delete('http://sportmastersapi.hostingerapp.com/api/user/video/delete/'+this.videoId,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -277,7 +277,7 @@
           fd.append('subcategory', this.selectedItem);
           fd.append('user', this.userId);
 
-          return this.axios.post('http://127.0.0.1:8080/api/user/video/update/'+this.videoId, fd,
+          return this.axios.post('http://sportmastersapi.hostingerapp.com/api/user/video/update/'+this.videoId, fd,
             {headers:{
               'Content-Type':'application/json',
               'X-Requested-With': 'XMLHttpRequest'

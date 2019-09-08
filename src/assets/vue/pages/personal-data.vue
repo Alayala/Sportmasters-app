@@ -155,7 +155,7 @@
         var fd = new FormData();
         fd.append('avatar', file);
 
-        return this.axios.post('http://127.0.0.1:8080/api/user/update/avatar/'+this.userId, fd,
+        return this.axios.post('http://sportmastersapi.hostingerapp.com/api/user/update/avatar/'+this.userId, fd,
              {headers:{
               'Content-Type':'multipart/form-data',
               'X-Requested-With': 'XMLHttpRequest'
@@ -168,13 +168,13 @@
       },
       //Método que devuelve toda la información del usuario para mostrarla a través del formulario
       fetchUsersData: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/user/show/'+this.userId,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/show/'+this.userId,
         {headers:{
           'Content-Type':'application/json',
           'X-Requested-With': 'XMLHttpRequest'
           }
         }).then(response => { 
-          this.avatar = 'http://127.0.0.1:8080/api/user/avatar/' + response.data.avatar;
+          this.avatar = 'http://sportmastersapi.hostingerapp.com/api/user/avatar/' + response.data.avatar;
           this.name = response.data.name;
           this.lastname = (response.data.lastname == "null") ? "" : response.data.lastname;
           this.address = (response.data.address == "null") ? "" : response.data.address;
@@ -223,7 +223,7 @@
         }
 
         if(!error){
-          return this.axios.post('http://127.0.0.1:8080/api/user/update/'+this.userId, fd,
+          return this.axios.post('http://sportmastersapi.hostingerapp.com/api/user/update/'+this.userId, fd,
              {headers:{
               'Content-Type':'multipart/form-data',
               'X-Requested-With': 'XMLHttpRequest'

@@ -124,7 +124,7 @@
       },
       signup: function() {
         if(this.validate()){        
-          return this.axios.post('http://127.0.0.1:8080/api/auth/signup', { 
+          return this.axios.post('http://sportmastersapi.hostingerapp.com/api/auth/signup', { 
             name: this.name, 
             email: this.email, 
             password: this.password, 

@@ -394,7 +394,7 @@
     },
     methods: {
       loadAllSubcategory: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/administration/subcategory/all',
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/administration/subcategory/all',
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -414,7 +414,7 @@
           });
       },
       loadAllCategory: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/administration/category/all',
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/administration/category/all',
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -454,7 +454,7 @@
         fd.append('option', option);
         fd.append('rol', this.rol);
 
-        return this.axios.post('http://127.0.0.1:8080/api/user/filter/list',fd,
+        return this.axios.post('http://sportmastersapi.hostingerapp.com/api/user/filter/list',fd,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -486,7 +486,7 @@
         var fd = new FormData();
         fd.append('name', this.nameCategory);
 
-        return this.axios.post('http://127.0.0.1:8080/api/administration/category/create',fd,
+        return this.axios.post('http://sportmastersapi.hostingerapp.com/api/administration/category/create',fd,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -506,7 +506,7 @@
         var fd = new FormData();
         fd.append('name', this.nameCategory);
 
-        return this.axios.post('http://127.0.0.1:8080/api/administration/category/update/'+this.idSelectedElem,fd,
+        return this.axios.post('http://sportmastersapi.hostingerapp.com/api/administration/category/update/'+this.idSelectedElem,fd,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -522,7 +522,7 @@
       },
       //Listamos las categorias y subcategorias existentes en el sistema
       loadCategoryList: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/administration/category/list',
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/administration/category/list',
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -545,7 +545,7 @@
           });
       },
       getCurriculum: function(id) {
-        return this.axios.get('http://127.0.0.1:8080/api/user/curriculum/'+id,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/curriculum/'+id,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -559,13 +559,13 @@
         });
       },
       getAvatar: function(id) {
-        return this.axios.get('http://127.0.0.1:8080/api/user/avatar/name/'+id,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/avatar/name/'+id,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
           }
         }).then(response => { 
-          this.avatar = 'http://127.0.0.1:8080/api/user/avatar/' + response.data.name;
+          this.avatar = 'http://sportmastersapi.hostingerapp.com/api/user/avatar/' + response.data.name;
         }).catch( error => {
           console.log(error);
         });
@@ -575,7 +575,7 @@
 
         if(this.rol == "0"){//Si es un candidato consultamos el curriculum
           if(this.getCurriculum(this.user_data["id"])){
-            this.curriculum = 'http://127.0.0.1:8080/api/user/curriculum/' + this.user_data["id"];
+            this.curriculum = 'http://sportmastersapi.hostingerapp.com/api/user/curriculum/' + this.user_data["id"];
           }
           this.getOffers();
         }else if(this.rol == "1"){
@@ -584,7 +584,7 @@
       },
       //Listamos todas las ofertas activas disponibles
       getOffers: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/user/offer/list-all/',
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/offer/list-all/',
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -609,7 +609,7 @@
       },
       //Listamos todos los videos activos disponibles
       getVideos: function(){
-         return this.axios.get('http://127.0.0.1:8080/api/bussiness/video/list-all/',
+         return this.axios.get('http://sportmastersapi.hostingerapp.com/api/bussiness/video/list-all/',
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -659,7 +659,7 @@
       deleteCategory: function(){
         this.$f7.sheet.close();
 
-        return this.axios.delete('http://127.0.0.1:8080/api/administration/category/delete/'+this.idSelectedElem,
+        return this.axios.delete('http://sportmastersapi.hostingerapp.com/api/administration/category/delete/'+this.idSelectedElem,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -675,7 +675,7 @@
       deleteSubcategory: function(){
         this.$f7.sheet.close();
 
-        return this.axios.delete('http://127.0.0.1:8080/api/administration/subcategory/delete/'+this.idSelectedElem,
+        return this.axios.delete('http://sportmastersapi.hostingerapp.com/api/administration/subcategory/delete/'+this.idSelectedElem,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -695,7 +695,7 @@
         fd.append('description', this.descriptionSubcategory);
         fd.append('category', this.idSelectedElem);
 
-        return this.axios.post('http://127.0.0.1:8080/api/administration/subcategory/create',fd,
+        return this.axios.post('http://sportmastersapi.hostingerapp.com/api/administration/subcategory/create',fd,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -716,7 +716,7 @@
         fd.append('name', this.nameSubcategory);
         fd.append('description', this.descriptionSubcategory);
 
-        return this.axios.post('http://127.0.0.1:8080/api/administration/subcategory/update/'+this.idSelectedElem,fd,
+        return this.axios.post('http://sportmastersapi.hostingerapp.com/api/administration/subcategory/update/'+this.idSelectedElem,fd,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'

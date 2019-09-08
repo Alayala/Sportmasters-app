@@ -136,7 +136,7 @@
       },
       //Listamos las categorias y subcategorias existentes en el sistema
       loadCategoryList: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/administration/category/list',
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/administration/category/list',
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -191,7 +191,7 @@
           fd.append('subcategory', this.selectedItem);
           fd.append('user', this.userId);
 
-          return this.axios.post('http://127.0.0.1:8080/api/user/video/create', fd,
+          return this.axios.post('http://sportmastersapi.hostingerapp.com/api/user/video/create', fd,
             {headers:{
               'Content-Type':'application/json',
               'X-Requested-With': 'XMLHttpRequest'

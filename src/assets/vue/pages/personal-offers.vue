@@ -60,7 +60,7 @@
     },
     methods: {
       ofertasActivas: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/bussiness/offer/list-active/'+this.userId,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/bussiness/offer/list-active/'+this.userId,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
@@ -79,7 +79,7 @@
         });
       },
       ofertasInactivas: function(){
-        return this.axios.get('http://127.0.0.1:8080/api/bussiness/offer/list-inactive/'+this.userId,
+        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/bussiness/offer/list-inactive/'+this.userId,
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'
