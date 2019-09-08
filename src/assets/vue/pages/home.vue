@@ -3,7 +3,7 @@
 
     <div>
       <b-navbar toggleable="lg" type="dark" variant="info">
-        <b-navbar-brand href="#" v-if="rol != 2">Sportmasters - Bienvenid@ {{ userName }}</b-navbar-brand>
+        <b-navbar-brand href="#" v-if="rol != 2">Sportmasters</b-navbar-brand>
          <b-navbar-brand href="#" v-else>Sportmasters - Administración</b-navbar-brand>
 
         <!-- Right aligned nav items -->
@@ -27,7 +27,7 @@
         <!--Panel para usuarios-->
         <f7-page class="menu_lateral" >
           <!--Panel para usuarios-->
-            <f7-navbar title="Mi cuenta" >
+            <f7-navbar :title="userName" >
               <img id="avatar-miniature" :src="avatar">
             </f7-navbar>
             <f7-block><f7-link class="panel-close" href='/personal-data/' view='#main-view' icon-f7="person">Datos personales</f7-link></f7-block>
@@ -60,7 +60,7 @@
     </div>
 
     <!--Logotipos de empresas que trabajan con nosotros-->
-    <f7-swiper style="height:18%">
+    <f7-swiper>
       <f7-swiper-slide>
         <img src="../../images/banner1.png" width="100%">
       </f7-swiper-slide>
@@ -362,6 +362,7 @@
 </template>
 
 <script>
+
   export default {
     data() {
       return {
@@ -584,10 +585,10 @@
       },
       //Listamos todas las ofertas activas disponibles
       getOffers: function(){
-        return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/offer/list-all/',
+       return this.axios.get('http://sportmastersapi.hostingerapp.com/api/user/offer/list-all/' + this.user_data["id"],
           {headers:{
             'Content-Type':'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
+            //'X-Requested-With': 'XMLHttpRequest',
           }
         }).then(response => { 
           //success
@@ -609,7 +610,7 @@
       },
       //Listamos todos los videos activos disponibles
       getVideos: function(){
-         return this.axios.get('http://sportmastersapi.hostingerapp.com/api/bussiness/video/list-all/',
+         return this.axios.get('http://sportmastersapi.hostingerapp.com/api/bussiness/video/list-all/'+ this.user_data["id"],
           {headers:{
             'Content-Type':'application/json',
             'X-Requested-With': 'XMLHttpRequest'

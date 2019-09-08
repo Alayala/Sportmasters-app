@@ -1,7 +1,8 @@
 <template>
   <f7-page >
-    <f7-navbar title="Demandas publicadas">
+    <f7-navbar title="Demandas publicadas ">
       <f7-link slot="nav-left" icon-f7="arrow_left" icon-only href="/home/"></f7-link>
+
     </f7-navbar>
   
     <f7-block-title class="title-strong">{{ message }}</f7-block-title>
@@ -49,12 +50,13 @@
         listInactiveItems: [],
         message: '',
         message_closed: '',
+        user_data: ''
       }
     },
     mounted(){
       //Método que carga toda la información relativa al usurio cuando carga la página
-      var data = JSON.parse(localStorage.getItem('login'));
-      this.userId = data["id"];
+      this.user_data = JSON.parse(localStorage.getItem('login'));
+      this.userId = this.user_data["id"];
       this.ofertasActivas();
       this.ofertasInactivas();
     },

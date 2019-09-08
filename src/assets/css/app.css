@@ -77,6 +77,10 @@
 	border-radius: 50%;
 }
 
+.swiper-container{
+	height: 20%;
+}
+
 .swiper-slide {
     background: #fff;
     text-align: center;
@@ -84,6 +88,7 @@
     line-height: 100px;
     box-sizing: border-box;
     border: 1px solid #ccc;
+
 }
 
 .fab {

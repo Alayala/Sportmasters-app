@@ -30,6 +30,7 @@
         this.$session.clear();
         localStorage.removeItem('user-token');
         localStorage.removeItem('login');
+        localStorage.clear();
     }
   };
   </script>
