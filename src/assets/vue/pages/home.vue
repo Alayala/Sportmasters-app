@@ -62,10 +62,10 @@
     <!--Logotipos de empresas que trabajan con nosotros-->
     <f7-swiper>
       <f7-swiper-slide>
-        <img src="../../images/banner1.png" width="100%">
+        <img src="../../images/banner2.png" width="100%">
       </f7-swiper-slide>
       <f7-swiper-slide>
-        <img src="../../images/banner2.png" width="100%">
+        <img src="../../images/banner3.png" width="100%">
       </f7-swiper-slide>
       <f7-swiper-slide>
         <img src="../../images/banner3.png" width="100%">
