@@ -47,7 +47,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
     "@vimeo/player": "^2.10.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.28",
     "cordova-android": "^8.0.0",
